@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BG'S JEWELLERY | Where Tradition Meets Timeless Beauty | 22KT Luxury Bridal Atelier</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              300: '#f5e4bd',
+              400: '#e5c378',
+              500: '#d4af37',
+              600: '#b8860b',
+              700: '#997320'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0e0a08] text-[#fbf8f3] antialiased selection:bg-amber-600 selection:text-white">
+
+  <!-- ======================================================================
+       1. TOP ANNOUNCEMENT & LIVE RATE TICKER
+       ====================================================================== -->
+  <div class="top-ticker-bar flex flex-wrap items-center justify-between text-stone-300">
+    <div class="container mx-auto px-4 flex flex-wrap items-center justify-between gap-3">
+      <!-- Live Ticker -->
+      <div class="flex items-center gap-4 text-xs">
+        <span class="rate-pill">
+          <span class="pulsing-dot"></span>
+          <span class="text-stone-300 font-serif">Today's Gold Rate:</span>
+          <span class="text-amber-300 font-mono font-semibold" id="topTicker22k">₹7,450/g (22K)</span>
+          <span class="text-stone-500">|</span>
+          <span class="text-amber-200 font-mono font-semibold" id="topTicker24k">₹8,125/g (24K)</span>
+        </span>
+        <span class="hidden lg:inline text-stone-400">
+          <i class="fa-solid fa-shield-halved text-amber-400 mr-1"></i> 100% BIS Hallmarked HUID Guarantee
+        </span>
+      </div>
+
+      <!-- Right quick actions -->
+      <div class="flex items-center gap-5 text-xs">
+        <a href="#appointmentSection" class="hover:text-amber-300 transition-colors hidden sm:inline flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar-check text-amber-400"></i> Book Atelier Appointment
+        </a>
+        <a href="tel:+919876543210" class="hover:text-amber-300 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-phone text-amber-400"></i> +91 98765 43210
+        </a>
+
+        <!-- Currency Selector -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-amber-300 font-medium hover:text-white transition-colors bg-stone-900/60 px-2.5 py-1 border border-stone-800 rounded-sm">
+            <i class="fa-solid fa-globe text-[11px]"></i>
+            <span id="currentCurrencyLabel">INR</span>
+            <i class="fa-solid fa-angle-down text-[10px]"></i>
+          </button>
+          <div class="absolute right-0 top-full mt-1 w-36 bg-stone-900 border border-amber-900/40 rounded-sm shadow-2xl py-1 hidden group-hover:block z-50">
+            <button onclick="setCurrency('INR')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-amber-500/10 hover:text-amber-300 text-stone-300 flex justify-between">
+              <span>₹ INR</span> <span class="text-stone-500 text-[10px]">India</span>
+            </button>
+            <button onclick="setCurrency('USD')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-amber-500/10 hover:text-amber-300 text-stone-300 flex justify-between">
+              <span>$ USD</span> <span class="text-stone-500 text-[10px]">Global</span>
+            </button>
+            <button onclick="setCurrency('AED')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-amber-500/10 hover:text-amber-300 text-stone-300 flex justify-between">
+              <span>AED د.إ</span> <span class="text-stone-500 text-[10px]">UAE</span>
+            </button>
+            <button onclick="setCurrency('GBP')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-amber-500/10 hover:text-amber-300 text-stone-300 flex justify-between">
+              <span>£ GBP</span> <span class="text-stone-500 text-[10px]">UK</span>
+            </button>
+            <button onclick="setCurrency('EUR')" class="w-full text-left px-3 py-1.5 text-xs hover:bg-amber-500/10 hover:text-amber-300 text-stone-300 flex justify-between">
+              <span>€ EUR</span> <span class="text-stone-500 text-[10px]">Europe</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       2. MAIN LUXURY HEADER & NAVIGATION
+       ====================================================================== -->
+  <header id="mainHeader" class="header-nav py-4">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      
+      <!-- Brand Logo (matching reference brand 'bg's jewellery') -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 border border-amber-400/60 rounded-full flex items-center justify-center bg-stone-900 group-hover:border-amber-300 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all">
+          <span class="font-serif italic font-bold text-amber-300 text-xl tracking-tighter">bg's</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display tracking-[0.25em] text-lg font-bold text-gold-shimmer uppercase">BG'S JEWELLERY</span>
+          <span class="text-[9px] tracking-[0.3em] uppercase text-stone-400 font-sans">Haute Joaillerie &middot; Est. 1984</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden xl:flex items-center gap-8 text-xs uppercase tracking-[0.16em] text-stone-300 font-medium">
+        <a href="#bridalSuite" class="hover:text-amber-300 transition-colors py-1 border-b border-transparent hover:border-amber-400">Bridal Heritage</a>
+        <a href="#collectionsSection" class="hover:text-amber-300 transition-colors py-1 border-b border-transparent hover:border-amber-400">Collections</a>
+        <a href="#catalogueSection" class="hover:text-amber-300 transition-colors py-1 border-b border-transparent hover:border-amber-400">22KT Gold</a>
+        <a href="#goldRateSection" class="hover:text-amber-300 transition-colors py-1 border-b border-transparent hover:border-amber-400">Live Rates & Calc</a>
+        <a href="#savingsSchemeSection" class="hover:text-amber-300 transition-colors py-1 border-b border-transparent hover:border-amber-400">Swarna Savings</a>
+        <a href="#appointmentSection" class="hover:text-amber-300 transition-colors py-1 border-b border-transparent hover:border-amber-400">Bespoke Atelier</a>
+        <a href="#heritageTrustSection" class="hover:text-amber-300 transition-colors py-1 border-b border-transparent hover:border-amber-400">Hallmarks</a>
+      </nav>
+
+      <!-- Right Action Icons -->
+      <div class="flex items-center gap-3">
+        <!-- Search Trigger -->
+        <button onclick="openSearch()" class="w-9 h-9 flex items-center justify-center text-stone-300 hover:text-amber-300 hover:bg-stone-900 border border-transparent hover:border-stone-800 rounded-sm transition-all" title="Search jewellery">
+          <i class="fa-solid fa-magnifying-glass text-sm"></i>
+        </button>
+
+        <!-- Wishlist -->
+        <button onclick="openWishlist()" class="relative w-9 h-9 flex items-center justify-center text-stone-300 hover:text-amber-300 hover:bg-stone-900 border border-transparent hover:border-stone-800 rounded-sm transition-all" title="Your Wishlist">
+          <i class="fa-regular fa-heart text-sm"></i>
+          <span id="wishlistCount" class="absolute -top-1 -right-1 bg-amber-500 text-stone-950 font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+        </button>
+
+        <!-- Shopping Cart / Bag -->
+        <button onclick="openCart()" class="relative w-9 h-9 flex items-center justify-center text-stone-300 hover:text-amber-300 hover:bg-stone-900 border border-transparent hover:border-stone-800 rounded-sm transition-all" title="Consultation Bag">
+          <i class="fa-solid fa-bag-shopping text-sm"></i>
+          <span id="cartCount" class="absolute -top-1 -right-1 bg-amber-400 text-stone-950 font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+        </button>
+
+        <!-- Book Consultation CTA (Desktop) -->
+        <button onclick="openConsultationModal()" class="hidden md:inline-flex btn-reference-outline text-xs py-2 px-4 ml-2">
+          <span>Book Atelier</span>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button id="mobileMenuBtn" class="xl:hidden w-9 h-9 flex items-center justify-center text-stone-300 hover:text-amber-300">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileDrawer" class="hidden xl:hidden bg-stone-950 border-b border-amber-900/30 px-6 py-6 space-y-4">
+      <nav class="flex flex-col space-y-3 text-sm font-serif tracking-wider">
+        <a href="#bridalSuite" class="text-amber-200 hover:text-amber-400 py-1" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Bridal Heritage Collection</a>
+        <a href="#collectionsSection" class="text-stone-300 hover:text-amber-400 py-1" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Curated Collections</a>
+        <a href="#catalogueSection" class="text-stone-300 hover:text-amber-400 py-1" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">22KT Gold Jewellery Catalogue</a>
+        <a href="#goldRateSection" class="text-stone-300 hover:text-amber-400 py-1" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Live Gold Rate & Value Calculator</a>
+        <a href="#savingsSchemeSection" class="text-stone-300 hover:text-amber-400 py-1" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Swarna Monthly Savings Scheme</a>
+        <a href="#appointmentSection" class="text-stone-300 hover:text-amber-400 py-1" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Bespoke Bridal Appointment</a>
+        <a href="#heritageTrustSection" class="text-stone-300 hover:text-amber-400 py-1" onclick="document.getElementById('mobileDrawer').classList.add('hidden')">Hallmarks & Authenticity</a>
+      </nav>
+      <div class="pt-4 border-t border-stone-800 flex gap-3">
+        <button onclick="openConsultationModal(); document.getElementById('mobileDrawer').classList.add('hidden')" class="btn-gold-solid w-full text-xs py-2.5">
+          Book Private Viewing
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       3. HERO SECTION - FAITHFUL TO USER REFERENCE
+       "Where Tradition Meets Timeless Beauty"
+       ====================================================================== -->
+  <section id="bridalSuite" class="relative pt-6 pb-16 lg:py-16 overflow-hidden">
+    <div class="container mx-auto px-4 max-w-7xl">
+
+      <!-- Breadcrumb & Campaign Info -->
+      <div class="flex items-center justify-between text-xs text-stone-400 mb-6">
+        <div class="flex items-center gap-2 font-serif tracking-wider">
+          <span class="text-amber-400">Atelier Heritage</span>
+          <span>/</span>
+          <span>Bridal Masterpieces 2026-2027</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-3 font-mono text-[11px] text-amber-300/80">
+          <span class="flex items-center gap-1.5"><i class="fa-solid fa-crown text-amber-400"></i> Royal Edition</span>
+          <span>&middot;</span>
+          <span>BIS 916 Pure Gold</span>
+        </div>
+      </div>
+
+      <!-- Main Showcase Card (Direct Recreation of the Reference Image) -->
+      <div class="hero-reference-card relative w-full aspect-[16/9] md:aspect-[21/10] max-h-[720px] rounded-sm overflow-hidden flex items-center">
+        <!-- Background Image from exact crop of reference -->
+        <img src="images/hero-banner.jpg" alt="Where Tradition Meets Timeless Beauty - Bridal Jewellery" class="absolute inset-0 w-full h-full object-cover object-right md:object-center select-none">
+
+        <!-- Subtle Left Gradient to ensure text readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#140e0be0] via-[#140e0b90] to-transparent md:w-3/5"></div>
+
+        <!-- Hero Content Overlay (Matching typography and layout from reference screenshot) -->
+        <div class="relative z-10 p-6 sm:p-12 md:p-16 max-w-xl md:max-w-2xl text-left space-y-4 md:space-y-6">
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-950/60 border border-amber-500/30 text-amber-300 text-[10px] sm:text-xs uppercase tracking-[0.2em] font-serif backdrop-blur-sm">
+            <i class="fa-solid fa-sparkles"></i> The Imperial Bridal Trove
+          </div>
+
+          <h1 class="font-serif leading-[1.08] text-white">
+            <span class="block text-3xl sm:text-5xl md:text-6xl font-light italic text-[#f8ede0]">Where Tradition</span>
+            <span class="block text-3xl sm:text-5xl md:text-6xl font-normal text-[#fbf7f0] mt-1 md:mt-2">Meets Timeless Beauty</span>
+          </h1>
+
+          <p class="font-serif text-sm sm:text-lg md:text-xl text-[#dcd1c6] font-light tracking-wide max-w-lg leading-relaxed">
+            Bridal Jewellery Designed to Be Remembered
+          </p>
+
+          <!-- The Reference Outline CTA Button -->
+          <div class="pt-2 sm:pt-4 flex flex-wrap items-center gap-4">
+            <a href="#catalogueSection" class="btn-reference-outline text-sm sm:text-base py-2.5 sm:py-3.5 px-6 sm:px-9">
+              <span>View Collection</span>
+            </a>
+
+            <button onclick="openConsultationModal()" class="btn-glass text-xs sm:text-sm py-2.5 sm:py-3.5 px-5 sm:px-7 border-amber-500/30 text-amber-200 hover:text-white flex items-center gap-2">
+              <i class="fa-regular fa-calendar-check text-amber-400"></i>
+              <span>Book Bridal Lounge</span>
+            </button>
+          </div>
+
+          <!-- Bottom Micro specs -->
+          <div class="pt-4 flex items-center gap-6 text-[11px] text-stone-300 font-serif">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-400"></i> BIS 916 Hallmarked</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-400"></i> Certified Uncut Polki</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-amber-400"></i> Lifetime 100% Buyback</span>
+          </div>
+
+        </div>
+
+        <!-- Carousel navigation pill at bottom center (matching reference footer text) -->
+        <div class="absolute bottom-3 right-4 sm:right-6 z-10 flex items-center gap-3 bg-black/60 backdrop-blur-md px-3.5 py-1.5 border border-white/10 rounded-full text-xs">
+          <span class="text-stone-400 text-[11px] font-mono">bg's jewellery &middot; reference 2026</span>
+          <button onclick="openQuickView('bg-hero-01')" class="text-amber-300 hover:text-white flex items-center gap-1 text-[11px] font-medium">
+            Inspect Piece <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       4. LIVE GOLD RATE TICKER & VALUE CALCULATOR BAR
+       ====================================================================== -->
+  <section id="goldRateSection" class="gold-rate-ticker-section py-12 relative">
+    <div class="container mx-auto px-4 max-w-7xl">
+      
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        
+        <!-- Rate Board -->
+        <div class="w-full lg:w-7/12 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-serif uppercase tracking-widest text-amber-400">Market Benchmark</span>
+              <h3 class="text-2xl font-serif text-white">Live Bullion & Jewellery Gold Rates</h3>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-stone-400 block font-mono">Live MCX & Bullion Linked</span>
+              <span class="text-xs text-emerald-400 flex items-center gap-1 justify-end">
+                <span class="pulsing-dot"></span> Active Trading
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <!-- 22K (Standard Hallmark) -->
+            <div class="rate-stat-box border-amber-500/30 bg-amber-950/20">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-amber-400 font-bold">22 Karat (91.6%)</div>
+              <div class="text-xl font-serif font-bold text-white mt-1" id="rate22kValue">₹7,450</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">per gram hallmarked</div>
+              <div class="text-[10px] text-emerald-400 mt-1 font-mono">+₹25 (+0.34%)</div>
+            </div>
+
+            <!-- 24K Pure -->
+            <div class="rate-stat-box">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-stone-400">24 Karat (99.9%)</div>
+              <div class="text-xl font-serif font-bold text-stone-200 mt-1" id="rate24kValue">₹8,125</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">per gram pure gold</div>
+              <div class="text-[10px] text-emerald-400 mt-1 font-mono">+₹30 (+0.37%)</div>
+            </div>
+
+            <!-- 18K Diamond Setting -->
+            <div class="rate-stat-box">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-stone-400">18 Karat (75.0%)</div>
+              <div class="text-xl font-serif font-bold text-stone-200 mt-1" id="rate18kValue">₹6,095</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">per gram diamond setting</div>
+              <div class="text-[10px] text-emerald-400 mt-1 font-mono">+₹20 (+0.33%)</div>
+            </div>
+
+            <!-- Silver 999 -->
+            <div class="rate-stat-box">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-stone-400">Silver 999</div>
+              <div class="text-xl font-serif font-bold text-stone-200 mt-1" id="rateSilverValue">₹98.50</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">per gram fine silver</div>
+              <div class="text-[10px] text-emerald-400 mt-1 font-mono">+₹0.60 (+0.61%)</div>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-stone-400 italic">
+            * All gold rates are quoted net before local taxes and craftsmanship charges. BIS hallmark laser verified.
+          </p>
+        </div>
+
+        <!-- Interactive Value & Making Charges Calculator -->
+        <div class="w-full lg:w-5/12 bg-stone-900/90 border border-amber-500/30 p-6 rounded-sm shadow-xl">
+          <div class="flex items-center justify-between pb-3 border-b border-stone-800">
+            <h4 class="font-serif text-lg text-white flex items-center gap-2">
+              <i class="fa-solid fa-calculator text-amber-400"></i> Transparent Price Calculator
+            </h4>
+            <span class="text-[10px] text-stone-400 uppercase font-mono">Instant Estimate</span>
+          </div>
+
+          <div class="mt-4 space-y-3">
+            <div class="grid grid-cols-3 gap-2">
+              <div class="col-span-2">
+                <label class="text-[10px] uppercase tracking-wider text-stone-400 block mb-1">Enter Gold Weight</label>
+                <input id="calcWeight" type="number" step="0.01" value="10" class="w-full bg-stone-950 border border-stone-700 px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
+              </div>
+              <div>
+                <label class="text-[10px] uppercase tracking-wider text-stone-400 block mb-1">Unit</label>
+                <select id="calcUnit" class="w-full bg-stone-950 border border-stone-700 px-2 py-2 text-xs text-white focus:outline-none focus:border-amber-400">
+                  <option value="grams">Grams (g)</option>
+                  <option value="sovereign">Sovereign / Pavan (8g)</option>
+                  <option value="tola">Tola (11.66g)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="text-[10px] uppercase tracking-wider text-stone-400 block mb-1">Purity Karat</label>
+                <select id="calcPurity" class="w-full bg-stone-950 border border-stone-700 px-2 py-2 text-xs text-white focus:outline-none focus:border-amber-400">
+                  <option value="22" selected>22KT (91.6% BIS Hallmark)</option>
+                  <option value="24">24KT (99.9% Pure Gold)</option>
+                  <option value="18">18KT (75.0% Diamond Gold)</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-[10px] uppercase tracking-wider text-stone-400 block mb-1">Est. Total Valuation</label>
+                <div id="calcResult" class="text-lg font-serif font-bold text-amber-300 py-1.5 px-2 bg-black/40 border border-amber-900/40 text-right">
+                  ₹86,960
+                </div>
+              </div>
+            </div>
+
+            <!-- Breakdown list -->
+            <div id="calcBreakdown" class="pt-2"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       5. CURATED COLLECTIONS OVERVIEW
+       ====================================================================== -->
+  <section id="collectionsSection" class="py-20 bg-[#120d0a]">
+    <div class="container mx-auto px-4 max-w-7xl">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase font-serif tracking-[0.25em] text-amber-400">Imperial Portfolios</span>
+        <h2 class="text-3xl sm:text-4xl font-serif text-white mt-1">Curated Collections of Grandeur</h2>
+        <div class="crest-divider">
+          <i class="fa-solid fa-gem text-amber-400/60 text-xs"></i>
+        </div>
+        <p class="text-stone-400 text-xs sm:text-sm font-light leading-relaxed">
+          Each anthology encapsulates centuries of royal goldsmith traditions, from the temple carving of Thanjavur to the imperial kundan polki ateliers of Rajasthan.
+        </p>
+      </div>
+
+      <!-- Collections Grid -->
+      <div id="collectionsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       6. 22KT GOLD CATALOGUE & INTERACTIVE FILTERING
+       ====================================================================== -->
+  <section id="catalogueSection" class="py-20 relative">
+    <div class="container mx-auto px-4 max-w-7xl">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-amber-900/30">
+        <div>
+          <span class="text-xs uppercase font-serif tracking-[0.25em] text-amber-400">Exquisite Craftsmanship</span>
+          <h2 class="text-3xl sm:text-4xl font-serif text-white mt-1">The Atelier Master Catalogue</h2>
+          <p class="text-xs text-stone-400 mt-1">All pieces are handcrafted in 22KT/18KT gold with laser HUID hallmarking.</p>
+        </div>
+
+        <!-- Purity toggle -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-serif text-stone-400 uppercase tracking-wider mr-1">Filter Purity:</span>
+          <button data-purity="all" onclick="filterPurity('all')" class="purity-tab-btn active px-3 py-1 text-xs border border-amber-400 text-amber-300 font-mono">All</button>
+          <button data-purity="22KT" onclick="filterPurity('22KT')" class="purity-tab-btn px-3 py-1 text-xs border border-stone-700 text-stone-400 font-mono">22KT (916)</button>
+          <button data-purity="18KT" onclick="filterPurity('18KT')" class="purity-tab-btn px-3 py-1 text-xs border border-stone-700 text-stone-400 font-mono">18KT (750)</button>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex items-center gap-2 sm:gap-4 overflow-x-auto pb-4 mb-8 border-b border-stone-800 text-sm no-scrollbar">
+        <button data-category="all" onclick="filterCategory('all')" class="filter-tab-btn active whitespace-nowrap">All Masterpieces</button>
+        <button data-category="bridal" onclick="filterCategory('bridal')" class="filter-tab-btn whitespace-nowrap">Royal Bridal Sets</button>
+        <button data-category="necklaces" onclick="filterCategory('necklaces')" class="filter-tab-btn whitespace-nowrap">Chokers & Haars</button>
+        <button data-category="bangles" onclick="filterCategory('bangles')" class="filter-tab-btn whitespace-nowrap">Kadas & Bangles</button>
+        <button data-category="earrings" onclick="filterCategory('earrings')" class="filter-tab-btn whitespace-nowrap">Chandbalis & Jhumkas</button>
+        <button data-category="rings" onclick="filterCategory('rings')" class="filter-tab-btn whitespace-nowrap">Statement Rings</button>
+        <button data-category="mangalsutra" onclick="filterCategory('mangalsutra')" class="filter-tab-btn whitespace-nowrap">Sacred Mangalsutras</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+        <!-- Rendered by app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       7. SWARNA SAMRIDDHI MONTHLY GOLD SAVINGS SCHEME (Interactive)
+       ====================================================================== -->
+  <section id="savingsSchemeSection" class="py-20 bg-gradient-to-b from-[#130d0a] to-[#0e0a08] border-y border-amber-900/30">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="bg-gradient-to-r from-stone-900/90 via-amber-950/20 to-stone-900/90 border border-amber-500/30 p-8 sm:p-12 rounded-sm shadow-2xl">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          
+          <div class="space-y-5">
+            <span class="hallmark-badge text-xs uppercase tracking-widest text-amber-300">
+              <i class="fa-solid fa-coins text-amber-400"></i> Swarna Samriddhi Plan
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-serif text-white leading-tight">
+              Accumulate Gold with a Complimentary 12th Month Bonus
+            </h2>
+            <p class="text-xs sm:text-sm text-stone-300 leading-relaxed font-light">
+              Invest monthly in hallmarked gold. Pay for 11 installments, and BG's Jewellery contributes the 12th installment entirely FREE. Enjoy 100% waiver on select making charges upon bridal redemption.
+            </p>
+
+            <div class="space-y-3 pt-2 text-xs">
+              <div class="flex items-center gap-3 text-stone-300">
+                <i class="fa-solid fa-circle-check text-amber-400"></i>
+                <span>100% Transparent Live Gold Weight Conversion</span>
+              </div>
+              <div class="flex items-center gap-3 text-stone-300">
+                <i class="fa-solid fa-circle-check text-amber-400"></i>
+                <span>0% Making Charge Waiver on Bridal Suite Redemption</span>
+              </div>
+              <div class="flex items-center gap-3 text-stone-300">
+                <i class="fa-solid fa-circle-check text-amber-400"></i>
+                <span>Fully Insured & Guaranteed by BG's 40-Year Heritage</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Calculator Widget -->
+          <div class="bg-stone-950/80 border border-amber-500/20 p-6 rounded-sm space-y-6">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-serif tracking-wider text-amber-400">Monthly Deposit Amount</span>
+              <span id="savingsMonthlyDisplay" class="text-2xl font-serif font-bold text-amber-300">₹10,000</span>
+            </div>
+
+            <input id="savingsSlider" type="range" min="2000" max="50000" step="1000" value="10000" class="w-full h-2 bg-stone-800 rounded-lg cursor-pointer">
+
+            <div class="flex justify-between text-[11px] text-stone-400 font-mono">
+              <span>Min: ₹2,000/mo</span>
+              <span>Popular: ₹10,000/mo</span>
+              <span>Max: ₹50,000/mo</span>
+            </div>
+
+            <div class="p-4 bg-stone-900 border border-stone-800 space-y-3 text-xs">
+              <div class="flex justify-between text-stone-400">
+                <span>You Pay (11 Months):</span>
+                <span id="savingsUserTotal" class="text-white font-medium">₹1,10,000</span>
+              </div>
+              <div class="flex justify-between text-emerald-400">
+                <span>BG's 12th Month Gift:</span>
+                <span id="savingsBonus" class="font-bold">+ ₹10,000 (FREE)</span>
+              </div>
+              <div class="pt-2 border-t border-stone-800 flex justify-between items-baseline">
+                <span class="text-stone-300 font-serif text-sm">Total Jewellery Redemption:</span>
+                <span id="savingsGrandTotal" class="text-xl font-serif font-bold text-amber-300">₹1,20,000</span>
+              </div>
+              <div class="text-right text-[11px] text-amber-400/90 font-mono" id="savingsGoldEquiv">
+                ≈ 16.11 grams of 22KT Gold
+              </div>
+            </div>
+
+            <button onclick="openConsultationModal()" class="btn-gold-solid w-full text-xs py-3">
+              Enroll in Swarna Scheme
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       8. BESPOKE BRIDAL APPOINTMENT & ATELIER CONSULTATION
+       ====================================================================== -->
+  <section id="appointmentSection" class="py-20 relative">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="border border-amber-900/50 bg-[#16100c] p-8 sm:p-14 relative overflow-hidden">
+        
+        <div class="text-center max-w-xl mx-auto space-y-3 mb-10">
+          <span class="text-xs uppercase font-serif tracking-[0.25em] text-amber-400">Private Viewing</span>
+          <h2 class="text-3xl sm:text-4xl font-serif text-white">Reserve Your Bridal Atelier Suite</h2>
+          <p class="text-xs sm:text-sm text-stone-300 font-light leading-relaxed">
+            Experience our heritage bridal creations in an intimate, champagne-serviced private lounge with a dedicated Master Gemologist.
+          </p>
+        </div>
+
+        <form onsubmit="handleConsultationSubmit(event)" class="space-y-4 max-w-2xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-xs text-stone-400 block mb-1">Full Name *</label>
+              <input id="consName" type="text" required placeholder="Lady / Gent Name" class="w-full bg-stone-900 border border-stone-700 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+            </div>
+            <div>
+              <label class="text-xs text-stone-400 block mb-1">WhatsApp / Phone Number *</label>
+              <input id="consPhone" type="tel" required placeholder="+91 98765 43210" class="w-full bg-stone-900 border border-stone-700 px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-xs text-stone-400 block mb-1">Select Boutique Lounge *</label>
+              <select id="consSalon" class="w-full bg-stone-900 border border-stone-700 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400">
+                <option value="Flagship Atelier - South Extension, New Delhi">Flagship Atelier - South Extension, New Delhi</option>
+                <option value="Imperial Lounge - Bandra West, Mumbai">Imperial Lounge - Bandra West, Mumbai</option>
+                <option value="Heritage Suite - Banjara Hills, Hyderabad">Heritage Suite - Banjara Hills, Hyderabad</option>
+                <option value="Palace Boutique - Indiranagar, Bengaluru">Palace Boutique - Indiranagar, Bengaluru</option>
+                <option value="Royal Salon - Meena Bazaar, Dubai">Royal Salon - Meena Bazaar, Dubai</option>
+                <option value="Virtual Ultra-HD Video Consultation">Virtual Ultra-HD Video Consultation (Worldwide)</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-xs text-stone-400 block mb-1">Preferred Date *</label>
+              <input id="consDate" type="date" required class="w-full bg-stone-900 border border-stone-700 px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+
+          <div>
+            <label class="text-xs text-stone-400 block mb-1">Jewellery Requirements / Trousseau Details</label>
+            <textarea rows="3" placeholder="Tell us about the bridal functions, preferred styles (Polki, Temple, Antique 22K), or custom design desires..." class="w-full bg-stone-900 border border-stone-700 px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400"></textarea>
+          </div>
+
+          <div class="pt-2 text-center">
+            <button type="submit" class="btn-reference-outline w-full sm:w-auto px-12 py-3 text-sm">
+              <span>Confirm Atelier Reservation</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       9. TRUST, CRAFTSMANSHIP & HALLMARK GUARANTEE
+       ====================================================================== -->
+  <section id="heritageTrustSection" class="py-20 bg-[#0e0a08] border-t border-amber-900/30">
+    <div class="container mx-auto px-4 max-w-7xl">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase font-serif tracking-[0.25em] text-amber-400">Uncompromising Ethics</span>
+        <h2 class="text-3xl sm:text-4xl font-serif text-white mt-1">The Five Pillars of BG's Heritage</h2>
+        <div class="crest-divider">
+          <i class="fa-solid fa-crown text-amber-400/60 text-xs"></i>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 text-center">
+        
+        <div class="p-6 bg-stone-900/40 border border-stone-800 hover:border-amber-500/40 transition-colors">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-300">
+            <i class="fa-solid fa-certificate text-lg"></i>
+          </div>
+          <h4 class="font-serif text-base text-white">100% BIS Hallmarked</h4>
+          <p class="text-xs text-stone-400 mt-2 leading-relaxed">
+            Every piece carries the official Bureau of Indian Standards 6-digit laser HUID purity stamp.
+          </p>
+        </div>
+
+        <div class="p-6 bg-stone-900/40 border border-stone-800 hover:border-amber-500/40 transition-colors">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-300">
+            <i class="fa-solid fa-arrows-rotate text-lg"></i>
+          </div>
+          <h4 class="font-serif text-base text-white">Lifetime Buyback</h4>
+          <p class="text-xs text-stone-400 mt-2 leading-relaxed">
+            Guaranteed 100% gold exchange value at prevailing market rates anytime across all boutiques.
+          </p>
+        </div>
+
+        <div class="p-6 bg-stone-900/40 border border-stone-800 hover:border-amber-500/40 transition-colors">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-300">
+            <i class="fa-solid fa-receipt text-lg"></i>
+          </div>
+          <h4 class="font-serif text-base text-white">Transparent Billing</h4>
+          <p class="text-xs text-stone-400 mt-2 leading-relaxed">
+            Zero hidden charges. Itemized invoice clearly showing net gold weight, making rate, and GST.
+          </p>
+        </div>
+
+        <div class="p-6 bg-stone-900/40 border border-stone-800 hover:border-amber-500/40 transition-colors">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-300">
+            <i class="fa-solid fa-gem text-lg"></i>
+          </div>
+          <h4 class="font-serif text-base text-white">Certified Polki & Gems</h4>
+          <p class="text-xs text-stone-400 mt-2 leading-relaxed">
+            Ethically sourced uncut diamonds and authentic Colombian & Zambian emeralds with appraisal.
+          </p>
+        </div>
+
+        <div class="p-6 bg-stone-900/40 border border-stone-800 hover:border-amber-500/40 transition-colors">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-300">
+            <i class="fa-solid fa-truck-fast text-lg"></i>
+          </div>
+          <h4 class="font-serif text-base text-white">Insured Global Transit</h4>
+          <p class="text-xs text-stone-400 mt-2 leading-relaxed">
+            Complimentary armored courier delivery with 100% transit insurance right to your doorstep.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       10. CLIENT TESTIMONIALS / REAL BRIDES
+       ====================================================================== -->
+  <section class="py-20 bg-[#140e0a]">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center max-w-xl mx-auto mb-14">
+        <span class="text-xs uppercase font-serif tracking-[0.25em] text-amber-400">Real Celebrations</span>
+        <h2 class="text-3xl font-serif text-white mt-1">Brides of BG's</h2>
+        <p class="text-xs text-stone-400 mt-1">Stories of unforgettable weddings adorned with our bridal heritage.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-stone-900/70 border border-stone-800 space-y-4">
+          <div class="flex items-center gap-1 text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-stone-300 italic leading-relaxed">
+            "The Noor-E-Awadh bridal choker made my wedding look royal beyond words. The gold craftsmanship and the green emerald drops received countless compliments."
+          </p>
+          <div class="pt-3 border-t border-stone-800">
+            <h5 class="text-sm font-serif text-white">Ananya & Sidharth</h5>
+            <span class="text-[10px] text-amber-400 font-mono">Udaipur Palace Wedding &middot; 2026</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-stone-900/70 border border-stone-800 space-y-4">
+          <div class="flex items-center gap-1 text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-stone-300 italic leading-relaxed">
+            "We were so impressed by the transparent pricing. They showed us exact gold rates, making charges, and hallmarking certificates without any hesitation."
+          </p>
+          <div class="pt-3 border-t border-stone-800">
+            <h5 class="text-sm font-serif text-white">Meera & Rohan Singhania</h5>
+            <span class="text-[10px] text-amber-400 font-mono">New Delhi Trousseau &middot; 2026</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-stone-900/70 border border-stone-800 space-y-4">
+          <div class="flex items-center gap-1 text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-stone-300 italic leading-relaxed">
+            "The Swarna Samriddhi scheme helped us plan our daughter's bridal jewellery over the year effortlessly. Getting the 12th installment free was incredible."
+          </p>
+          <div class="pt-3 border-t border-stone-800">
+            <h5 class="text-sm font-serif text-white">Dr. K. V. Ramanathan</h5>
+            <span class="text-[10px] text-amber-400 font-mono">Chennai &middot; Longtime Client</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       11. LUXURY FOOTER
+       ====================================================================== -->
+  <footer class="bg-[#0b0806] border-t border-amber-900/40 pt-16 pb-12 text-stone-400 text-xs">
+    <div class="container mx-auto px-4 max-w-7xl">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-800">
+        
+        <!-- Brand column -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 border border-amber-400 rounded-full flex items-center justify-center bg-stone-900">
+              <span class="font-serif italic font-bold text-amber-300 text-xl">bg's</span>
+            </div>
+            <div>
+              <span class="font-display tracking-[0.2em] text-base font-bold text-white block">BG'S JEWELLERY</span>
+              <span class="text-[9px] tracking-[0.25em] uppercase text-amber-400">Haute Joaillerie &middot; Est. 1984</span>
+            </div>
+          </div>
+          <p class="text-stone-400 text-xs leading-relaxed max-w-sm">
+            Crafting pure gold heirlooms and imperial bridal adornments for four decades. Where timeless Indian traditions meet contemporary luxury aesthetics.
+          </p>
+          <div class="flex gap-4 text-stone-400 pt-2 text-sm">
+            <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+          </div>
+        </div>
+
+        <!-- Collections Links -->
+        <div class="space-y-3">
+          <h5 class="text-white font-serif uppercase tracking-wider text-xs">Collections</h5>
+          <ul class="space-y-2">
+            <li><a href="#catalogueSection" onclick="filterCategory('bridal')" class="hover:text-amber-300">Royal Bridal Trove</a></li>
+            <li><a href="#catalogueSection" onclick="filterCategory('necklaces')" class="hover:text-amber-300">Temple & Antique Chokers</a></li>
+            <li><a href="#catalogueSection" onclick="filterCategory('bangles')" class="hover:text-amber-300">Jadau & Meena Kadas</a></li>
+            <li><a href="#catalogueSection" onclick="filterCategory('rings')" class="hover:text-amber-300">Polki Cocktail Rings</a></li>
+            <li><a href="#catalogueSection" onclick="filterCategory('mangalsutra')" class="hover:text-amber-300">Sacred Mangalsutras</a></li>
+          </ul>
+        </div>
+
+        <!-- Services & Atelier -->
+        <div class="space-y-3">
+          <h5 class="text-white font-serif uppercase tracking-wider text-xs">Atelier Services</h5>
+          <ul class="space-y-2">
+            <li><a href="#appointmentSection" class="hover:text-amber-300">Private Bridal Suite Booking</a></li>
+            <li><a href="#savingsSchemeSection" class="hover:text-amber-300">Swarna Samriddhi Chit Scheme</a></li>
+            <li><a href="#goldRateSection" class="hover:text-amber-300">Daily Gold Rate Index</a></li>
+            <li><a href="#heritageTrustSection" class="hover:text-amber-300">BIS Hallmark Verification</a></li>
+            <li><a href="#heritageTrustSection" class="hover:text-amber-300">100% Old Gold Exchange</a></li>
+          </ul>
+        </div>
+
+        <!-- Boutiques -->
+        <div class="space-y-3">
+          <h5 class="text-white font-serif uppercase tracking-wider text-xs">Flagship Boutiques</h5>
+          <p class="text-stone-300 font-medium">New Delhi &middot; Mumbai &middot; Hyderabad &middot; Bengaluru &middot; Dubai</p>
+          <p class="text-stone-500 text-[11px] leading-relaxed">
+            Concierge: <a href="tel:+919876543210" class="text-amber-300 hover:underline">+91 98765 43210</a><br>
+            Email: <a href="mailto:atelier@bgsjewellery.com" class="text-amber-300 hover:underline">atelier@bgsjewellery.com</a><br>
+            10:30 AM - 8:30 PM (All 7 Days)
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-500 gap-4">
+        <p>&copy; 2026 BG's Jewellery Limited. All Rights Reserved. 100% BIS Hallmarked 22KT/18KT Gold.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-stone-300">Hallmarking Policy</a>
+          <a href="#" class="hover:text-stone-300">Exchange & Buyback</a>
+          <a href="#" class="hover:text-stone-300">Privacy & Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       MODALS & DRAWERS
+       ====================================================================== -->
+
+  <!-- 1. Quick View Modal -->
+  <div id="quickViewModal" class="modal-overlay fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="modal-content relative bg-stone-950 border border-amber-500/40 max-w-4xl w-full p-6 sm:p-8 rounded-sm max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal('quickViewModal')" class="absolute top-4 right-4 text-stone-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="quickViewContent"></div>
+    </div>
+  </div>
+
+  <!-- 2. Shopping Bag / Consultation Cart Drawer -->
+  <div id="cartDrawer" class="modal-overlay fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end">
+    <div class="modal-content w-full max-w-md bg-stone-950 border-l border-amber-900/40 h-full flex flex-col justify-between p-6">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-stone-800">
+          <h4 class="font-serif text-lg text-white flex items-center gap-2">
+            <i class="fa-solid fa-bag-shopping text-amber-400"></i> Bridal Consultation Bag
+          </h4>
+          <button onclick="closeModal('cartDrawer')" class="text-stone-400 hover:text-white">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="cartItemsList" class="overflow-y-auto max-h-[60vh] divide-y divide-stone-800/60"></div>
+      </div>
+
+      <div class="pt-4 border-t border-stone-800 space-y-3">
+        <div class="flex justify-between text-xs text-stone-400">
+          <span>Total Net Gold Weight:</span>
+          <span id="cartTotalWeight" class="text-white font-mono font-medium">0.00g</span>
+        </div>
+        <div class="flex justify-between items-baseline">
+          <span class="text-sm font-serif text-stone-300">Estimated Total Value:</span>
+          <span id="cartSubtotal" class="text-2xl font-serif font-bold text-amber-300">₹0</span>
+        </div>
+        <p class="text-[10px] text-stone-500 italic">* Includes gold value at daily rate, making charges, and 3% GST.</p>
+        
+        <div class="space-y-2 pt-2">
+          <button onclick="checkoutViaWhatsApp()" class="btn-gold-solid w-full text-xs py-3 flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-sm"></i> Inquire Entire Bag on WhatsApp
+          </button>
+          <button onclick="closeModal('cartDrawer'); openConsultationModal()" class="w-full py-2.5 bg-stone-900 hover:bg-stone-800 text-stone-300 text-xs tracking-wider uppercase border border-stone-700 transition-colors">
+            Book In-Store Viewing for Bag
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Wishlist Drawer -->
+  <div id="wishlistDrawer" class="modal-overlay fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end">
+    <div class="modal-content w-full max-w-md bg-stone-950 border-l border-amber-900/40 h-full flex flex-col justify-between p-6">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-stone-800">
+          <h4 class="font-serif text-lg text-white flex items-center gap-2">
+            <i class="fa-solid fa-heart text-amber-400"></i> Saved Wishlist
+          </h4>
+          <button onclick="closeModal('wishlistDrawer')" class="text-stone-400 hover:text-white">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="wishlistItemsList" class="overflow-y-auto max-h-[70vh]"></div>
+      </div>
+      <div>
+        <button onclick="closeModal('wishlistDrawer')" class="w-full py-2.5 bg-stone-900 text-stone-300 text-xs tracking-wider uppercase border border-stone-700">
+          Continue Exploring
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Instant Search Modal -->
+  <div id="searchModal" class="modal-overlay fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-start justify-center pt-20 p-4">
+    <div class="modal-content bg-stone-950 border border-amber-500/40 max-w-xl w-full p-6 rounded-sm shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-stone-800">
+        <div class="flex items-center gap-3 flex-1">
+          <i class="fa-solid fa-magnifying-glass text-amber-400"></i>
+          <input id="searchInput" type="text" oninput="handleSearch(this.value)" placeholder="Search bridal sets, chokers, 22K bangles, rings..." class="w-full bg-transparent text-sm text-white focus:outline-none">
+        </div>
+        <button onclick="closeModal('searchModal')" class="text-stone-400 hover:text-white">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="searchResults" class="mt-4 max-h-80 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- 5. Consultation Booking Modal -->
+  <div id="consultationModal" class="modal-overlay fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="modal-content bg-stone-950 border border-amber-500/40 max-w-lg w-full p-6 sm:p-8 rounded-sm">
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <span class="text-xs uppercase font-serif tracking-widest text-amber-400">VIP Concierge</span>
+          <h3 class="text-xl font-serif text-white">Book Your Bridal Session</h3>
+        </div>
+        <button onclick="closeModal('consultationModal')" class="text-stone-400 hover:text-white">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form onsubmit="handleConsultationSubmit(event)" class="space-y-3">
+        <div>
+          <label class="text-xs text-stone-400 block mb-1">Your Name</label>
+          <input type="text" required placeholder="Full Name" class="w-full bg-stone-900 border border-stone-700 px-3 py-2 text-sm text-white focus:border-amber-400 outline-none">
+        </div>
+        <div>
+          <label class="text-xs text-stone-400 block mb-1">Mobile / WhatsApp</label>
+          <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-stone-900 border border-stone-700 px-3 py-2 text-sm text-white focus:border-amber-400 outline-none">
+        </div>
+        <div>
+          <label class="text-xs text-stone-400 block mb-1">Select Lounge or Virtual</label>
+          <select class="w-full bg-stone-900 border border-stone-700 px-3 py-2 text-xs text-white focus:border-amber-400 outline-none">
+            <option>Delhi Flagship Lounge (South Extension)</option>
+            <option>Mumbai Bridal Salon (Bandra West)</option>
+            <option>Hyderabad Heritage Suite (Banjara Hills)</option>
+            <option>Bengaluru Palace Boutique (Indiranagar)</option>
+            <option>Dubai Atelier (Meena Bazaar)</option>
+            <option>Virtual HD Video Showcase (Worldwide)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gold-solid w-full text-xs py-3 mt-2">
+          Confirm Appointment Pass
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 6. Appointment Pass Confirmation Modal -->
+  <div id="bookingPassModal" class="modal-overlay fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="modal-content bg-stone-950 border border-amber-400 max-w-md w-full rounded-sm" id="bookingPassContent"></div>
+  </div>
+
+  <!-- Floating WhatsApp Concierge Button -->
+  <a href="https://wa.me/919876543210?text=Namaste%20BG's%20Jewellery,%20I%20would%20like%20to%20inquire%20about%20your%2022KT%20Bridal%20Collection." target="_blank" class="floating-concierge" title="Chat with Bridal Concierge">
+    <i class="fa-brands fa-whatsapp text-2xl"></i>
+  </a>
+
+  <!-- Application Logic -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
